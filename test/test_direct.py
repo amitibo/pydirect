@@ -1,4 +1,4 @@
-import direct
+from DIRECT import direct
 import numpy as np
 
 trans = np.array([-1, 2, -4, 3])
@@ -11,7 +11,6 @@ def func( x, iidata, ddata, cdata, n, iisize, idsize, icsize ):
 if __name__ == '__main__':
 
     logfile = "direct_log.txt"
-    f = open( logfile, "w" )
 
     eps = 0.0001
     maxf = 10000
@@ -27,7 +26,7 @@ if __name__ == '__main__':
     ddata = np.ones(10, dtype=np.float64)
     cdata = np.ones([10,40], dtype=np.uint8)*49
 
-    x, fmin, ierror = direct.direct(
+    x, fmin, ierror = direct(
                         func,
                         eps,
                         maxf,
@@ -44,8 +43,6 @@ if __name__ == '__main__':
                         ddata,
                         cdata
                         )
-
-    f.close()
 
     print x
     print fmin
