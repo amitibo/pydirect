@@ -3,14 +3,12 @@ import numpy as np
 
 trans = np.array([-1, 2, -4, 3])
 
-def func( x, iidata, ddata, cdata, n, iisize, idsize, icsize ):
+def func(x, user_data):
     x -= trans
     return np.dot(x, x), 0
 
 
 if __name__ == '__main__':
-
-    logfile = "direct_log.txt"
 
     l = np.array([-10, -10, -10, -10], dtype=np.float64)
     u = np.array([10, 10, 10, 10], dtype=np.float64)
@@ -21,7 +19,8 @@ if __name__ == '__main__':
                         u
                         )
 
-    print x
-    print fmin
-                                
+    print 'Optimal point:', x
+    print 'Optimal value:', fmin
+    print 'Exit status:', ierror
+    
     
