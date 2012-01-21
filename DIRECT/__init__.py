@@ -14,7 +14,7 @@ License: MIT
 """
 
 import numpy as np
-from direct import direct
+from .direct import direct
 
 ERROR_MESSAGES = (
     'Maximum number of levels has been reached.',
