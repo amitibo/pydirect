@@ -14,7 +14,7 @@ MAINTAINER          = "Amit Aides"
 MAINTAINER_EMAIL    = "amitibo@tx.technion.ac.il"
 URL                 = ""
 LICENSE             = "MIT"
-VERSION             = "1.0"
+VERSION             = "0.1"
 
 classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python',
@@ -35,10 +35,8 @@ def configuration(parent_package='',top_path=None):
                            url = URL,
                            long_description = LONG_DESCRIPTION)
 
-    config.add_data_files('DIRECT/__init__.py')
     config.add_extension('direct', sources=['src/direct.pyf', 'src/DIRect.f', 'src/DIRserial.f', 'src/DIRsubrout.f'])
 
-#    config.add_data_files('DIRECT/test/*.*')
     return config
 
 
