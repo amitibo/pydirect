@@ -14,7 +14,7 @@ MAINTAINER          = "Amit Aides"
 MAINTAINER_EMAIL    = "amitibo@tx.technion.ac.il"
 URL                 = ""
 LICENSE             = "MIT"
-VERSION             = "0.1"
+VERSION             = "1.0"
 
 classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python',
