@@ -5,16 +5,37 @@ DIRECT - A python wrapper to the DIRECT algorithm.
 
 DIRECT is a method to solve global bound constraint optimization problems and
 was originally developed by D. R. Jones, C. D. Perttunen and B. E. Stuckmann.
+It is designed to find **global** solutions of mathematical optimization problems of the from
+
+.. math::
+
+       \min_ {x \in R^n} f(x)
+
+subject to
+
+.. math::
+
+       x_L \leq  x  \leq x_U
+
+Where :math:`x` are the optimization variables (with upper an lower
+bounds), :math:`f(x)` is the objective function.
 
 The DIRECT package uses the fortan implementation of DIRECT written by
 Joerg.M.Gablonsky, DIRECT Version 2.0.4.
 
-Author: Amit Aides <amitibo@tx.technion.ac.il>
-License: MIT
+.. codeauthor:: Amit Aides <amitibo@tx.technion.ac.il>
 """
+
+# Author: Amit Aides <amitibo@tx.technion.ac.il>
+#
+# License: EPL.
+
 
 import numpy as np
 from .direct import direct
+
+__version_info__ = ('1', '0')
+__version__ = '.'.join(__version_info__)
 
 ERROR_MESSAGES = (
     'Maximum number of levels has been reached.',
@@ -52,13 +73,18 @@ def solve(
     Solve an optimization problem using the DIRECT (Dividing Rectangles) algorithm.
     It can be used to solve general nonlinear programming problems of the form:
 
-            min     f(x)
-            x in R^n
-            
-            s.t.       l <= x <= u
+    .. math::
+
+           \min_ {x \in R^n} f(x)
+
+    subject to
+
+    .. math::
+
+           x_L \leq  x  \leq x_U
     
-    Where x are the optimization variables, f(x) is the objective function and
-    l, u are the box constraints.
+    Where :math:`x` are the optimization variables (with upper an lower
+    bounds), :math:`f(x)` is the objective function.
 
     Parameters
     ----------
@@ -102,7 +128,9 @@ def solve(
     fglper : float
         Terminate the optimization when the percent error satisfies:
         
-            100*(f_min - f_global)/max(1, |f_global|) < fglper
+        .. math::
+
+            100*(f_{min} - f_{global})/\max(1, |f_{global}|) \leq f_{glper}
         
         (default 0.01)
         
