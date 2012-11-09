@@ -12,9 +12,9 @@ Joerg.M.Gablonsky, DIRECT Version 2.0.4.
 """
 MAINTAINER          = "Amit Aides"
 MAINTAINER_EMAIL    = "amitibo@tx.technion.ac.il"
-URL                 = ""
+URL                 = "http://code.google.com/p/pydirect/"
 LICENSE             = "MIT"
-VERSION             = "1.0"
+VERSION             = "1.0.1"
 
 classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python',
@@ -38,7 +38,6 @@ def configuration(parent_package='',top_path=None):
     config.add_extension('direct', sources=['src/direct.pyf', 'src/DIRect.f', 'src/DIRserial.f', 'src/DIRsubrout.f'])
 
     return config
-
 
 
 if __name__ == "__main__":
