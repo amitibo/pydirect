@@ -18,4 +18,4 @@ Download the source files of pydirect, unzip, and then execute::
     $ python setup.py install
 
 You can test the installation by running the examples under the folder ``test/``.
-Some of the examples require `matplotlib <http://http://matplotlib.sourceforge.net/>`.
+Some of the examples require `matplotlib <http://matplotlib.org/>`_.
