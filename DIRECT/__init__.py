@@ -21,7 +21,8 @@ Where :math:`x` are the optimization variables (with upper an lower
 bounds), :math:`f(x)` is the objective function.
 
 The DIRECT package uses the fortan implementation of DIRECT written by
-Joerg.M.Gablonsky, DIRECT Version 2.0.4.
+Joerg.M.Gablonsky, DIRECT Version 2.0.4. More information on the DIRECT
+algorithm can be found in Gablonsky's `thesis <http://repository.lib.ncsu.edu/ir/bitstream/1840.16/3920/1/etd.pdf>`_.
 
 .. codeauthor:: Amit Aides <amitibo@tx.technion.ac.il>
 """
@@ -103,51 +104,54 @@ def solve(
     u : array-like, shape = [n]
         Upper bounds on variables, where n is the dimension of x.
         
-    eps : float
+    eps : float, optional (default=1e-4)
         Ensures sufficient decrease in function value when a new potentially
-        optimal interval is chosen (default 1e-4).
+        optimal interval is chosen.
 
-    maxf : integer
-        Approximate upper bound on objective function evaluations (default 20000).
-        NOTE:
-        Maximal allowed value is 90000 see documentation of fotran library.
+    maxf : integer, optional (default=20000)
+        Approximate upper bound on objective function evaluations.
+        
+        .. note::
+        
+            Maximal allowed value is 90000 see documentation of fotran library.
     
-    maxT : integer
-        Maximum number of iterations (default 6000).
-        NOTE:
-        Maximal allowed value is 6000 see documentation of fotran library.
+    maxT : integer, optional (default=6000)
+        Maximum number of iterations.
+        
+        .. note::
+        
+            Maximal allowed value is 6000 see documentation of fotran library.
         
     algmethod : integer
-        0 - Use the original DIRECT algorithm
-        1 - Use the modified DIRECT-l algorithm
-    
-    fglobal : float
-        Function value of the global optimum. If this value is not known set this
-        to a very large negative value (default -1e100).
+        Whether to use the original or modified DIRECT algorithm. Possible values:
         
-    fglper : float
+        * ``algmethod=0`` - use the original DIRECT algorithm
+        * ``algmethod=1`` - use the modified DIRECT-l algorithm
+    
+    fglobal : float, optional (default=-1e100)
+        Function value of the global optimum. If this value is not known set this
+        to a very large negative value.
+        
+    fglper : float, optional (default 0.01)
         Terminate the optimization when the percent error satisfies:
         
         .. math::
 
             100*(f_{min} - f_{global})/\max(1, |f_{global}|) \leq f_{glper}
         
-        (default 0.01)
-        
-    volper : float
+    volper : float, optional (default=-1.0)
         Terminate the optimization once the volume of a hyperrectangle is less
-        than volper percent of the original hyperrectangel (default -1.0).
+        than volper percent of the original hyperrectangel.
         
-    sigmaper : float
+    sigmaper : float, optional (default=-1.0)
         Terminate the optimization once the measure of the hyperrectangle is less
-        than sigmaper (default -1.0)
+        than sigmaper.
         
-    logfilename : string
-        Name of logfile (default 'DIRresults.txt').
+    logfilename : string, optional (default='DIRresults.txt')
+        Name of logfile.
         
-    user_data : object
-        Arbitrary python object used for passing data to the objective function
-        (default None).
+    user_data : object, optional (default=None)
+        Arbitrary python object used for passing data to the objective function.
     
     Returns
     -------
