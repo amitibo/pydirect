@@ -5,4 +5,5 @@ recursive-include src *
 recursive-include DIRECT *.py
 recursive-include test *.py
 recursive-include doc Makefile *.bat *.rst *.py
+recursive-include doc/images *
 prune DIRECT.egg-info

@@ -12,7 +12,7 @@ Joerg.M.Gablonsky, DIRECT Version 2.0.4.
 """
 MAINTAINER          = "Amit Aides"
 MAINTAINER_EMAIL    = "amitibo@tx.technion.ac.il"
-URL                 = "http://code.google.com/p/pydirect/"
+URL                 = "https://bitbucket.org/amitibo/pydirect"
 LICENSE             = "MIT"
 VERSION             = "1.0.1"
 
